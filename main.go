@@ -18,22 +18,22 @@ func main() {
 
 	stationStatus, _ := c.GetStationStatus()
 
-    stationStatusByID := make(map[string]api.StatusStation)
+	stationStatusByID := make(map[string]api.StatusStation)
 
-    for _, s := range stationStatus.Data.Stations {
-        stationStatusByID[s.StationID] = s
-    }
+	for _, s := range stationStatus.Data.Stations {
+		stationStatusByID[s.StationID] = s
+	}
 
 	var stations []api.Station
 
-    for _, s := range stationInformation.Data.Stations {
+	for _, s := range stationInformation.Data.Stations {
 		stations = append(stations, api.Station{
-			StationID: s.StationID,
-			Name: s.Name,
+			StationID:         s.StationID,
+			Name:              s.Name,
 			NumBikesAvailable: stationStatusByID[s.StationID].NumBikesAvailable,
 			NumDocksAvailable: stationStatusByID[s.StationID].NumDocksAvailable,
 		})
-    }
+	}
 
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"Name", "Bikes", "Locks"})
