@@ -25,6 +25,13 @@ You could also add it to your status bar (like =i3status= or =polybar=).
 
 [[https://github.com/staticaland/go-bysykkel/releases][Check out releases for pre-built binaries]].
 
+** Using go
+
+#+begin_src sh
+go install bysykkel.go
+#+end_src
+
+
 ** Homebrew
 
 A Homebrew formula is included at [[./Formula/bysykkel.rb][Formula/bysykkel.rb]].
@@ -47,6 +54,7 @@ To uninstall:
 brew uninstall bysykkel
 brew untap staticaland/go-bysykkel
 #+end_src
+
 
 * Build
 
