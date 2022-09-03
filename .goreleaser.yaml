@@ -1,8 +1,6 @@
 builds:
   - binary: bysykkel
-dockers:
-  - image_templates:
-      - staticaland/go-bysykkel
+
 brews:
   - name: bysykkel
     description: CLI for Oslo City Bike
@@ -15,6 +13,7 @@ brews:
     folder: Formula
     install: |
       bin.install "bysykkel"
+
 changelog:
   sort: asc
   groups:
