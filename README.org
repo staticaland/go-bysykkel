@@ -1,6 +1,16 @@
 * About
 
-The most efficient way to get around Oslo is on a bike.
+Simple CLI for Oslo City Bike.
+
+* Usage
+
+Follow the [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]] and use =fzf= to filter the output:
+
+#+begin_src sh
+bysykkel | fzf --reverse --header-lines=3 --bind 'ctrl-r:reload(bysykkel)'
+#+end_src
+
+This lets you filter the output and reload the data with Ctrl-R.
 
 * Installation
 
