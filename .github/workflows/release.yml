@@ -1,4 +1,4 @@
-name: Make a GitHub release with GoReleaser
+name: Release
 
 "on":
   push:
@@ -9,7 +9,7 @@ jobs:
 
   goreleaser:
 
-    name: Create a release
+    name: Make a GitHub release with GoReleaser
     runs-on: ubuntu-latest
 
     steps:
