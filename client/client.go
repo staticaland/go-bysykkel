@@ -3,9 +3,9 @@ package client
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"time"
+	"fmt"
 
 	"github.com/staticaland/go-bysykkel/gbfs"
 )
@@ -36,34 +36,15 @@ func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
 	req, _ := http.NewRequest("GET", StationInformationUrl, nil)
 
-	req.Header.Set("Client-Identifier", c.ClientID)
-	req.Header.Set("Content-Type", "application/json")
+	res := gbfs.ApiStationInformation{}
 
-	resp, err := c.HTTPClient.Do(req)
+	_, err := c.doRequest(req, &res)
 
 	if err != nil {
 		return nil, err
 	}
 
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		log.Fatal("unexpected response code", resp.Status)
-	}
-
-	body, err := ioutil.ReadAll(resp.Body)
-
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	var stationInformation gbfs.ApiStationInformation
-
-	if err := json.Unmarshal(body, &stationInformation); err != nil {
-		log.Fatalln(err)
-	}
-
-	return &stationInformation, nil
+	return &res, nil
 
 }
 
@@ -71,6 +52,20 @@ func (c *Client) GetStationStatus() (*gbfs.ApiStationStatus, error) {
 
 	req, _ := http.NewRequest("GET", StationStatusUrl, nil)
 
+	res := gbfs.ApiStationStatus{}
+
+	_, err := c.doRequest(req, &res)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &res, nil
+
+}
+
+func (c *Client) doRequest(req *http.Request, v any) (any, error) {
+
 	req.Header.Set("Client-Identifier", c.ClientID)
 	req.Header.Set("Content-Type", "application/json")
 
@@ -82,22 +77,20 @@ func (c *Client) GetStationStatus() (*gbfs.ApiStationStatus, error) {
 
 	defer resp.Body.Close()
 
+	// I want to create custom success and error types, but this will do for now
 	if resp.StatusCode != http.StatusOK {
-		log.Fatal("unexpected response code", resp.Status)
+		return nil, fmt.Errorf("Unexpected response code: %v", resp.Status)
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 
 	if err != nil {
-		log.Fatalln(err)
+		return nil, err
 	}
 
-	var stationStatus gbfs.ApiStationStatus
-
-	if err := json.Unmarshal(body, &stationStatus); err != nil {
-		log.Fatalln(err)
+	if err := json.Unmarshal(body, v); err != nil {
+		return nil, err
 	}
 
-	return &stationStatus, nil
-
+	return v, nil
 }

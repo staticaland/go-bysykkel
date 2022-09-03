@@ -1,13 +1,14 @@
 package main
 
 import (
+	"log"
 	"os"
 	"strconv"
 
 	"github.com/olekukonko/tablewriter"
 
-	"github.com/staticaland/go-bysykkel/gbfs"
 	"github.com/staticaland/go-bysykkel/client"
+	"github.com/staticaland/go-bysykkel/gbfs"
 )
 
 type Station struct {
@@ -21,9 +22,17 @@ func main() {
 
 	c := client.CreateClient()
 
-	stationInformation, _ := c.GetStationInformation()
+	stationInformation, err := c.GetStationInformation()
 
-	stationStatus, _ := c.GetStationStatus()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	stationStatus, err := c.GetStationStatus()
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	stationStatusByID := make(map[string]gbfs.StationStatus)
 
