@@ -37,6 +37,7 @@ func main() {
 
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"Name", "Bikes", "Locks"})
+	table.SetAutoFormatHeaders(false)
 
 	for _, s := range stations {
 		table.Append([]string{
