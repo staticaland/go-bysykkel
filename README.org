@@ -10,7 +10,16 @@ Follow the [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]] an
 bysykkel | fzf --reverse --header-lines=3 --bind 'ctrl-r:reload(bysykkel)'
 #+end_src
 
-This lets you filter the output and reload the data with Ctrl-R.
+This also lets you reload the data with Ctrl-R.
+
+You may also consider combining =grep= with =watch= to always know the status of
+your nearest bike station.
+
+#+begin_src sh
+watch --interval 5 --no-title 'bysykkel | grep Birkelunden'
+#+end_src
+
+You could also add it to your status bar (like =i3status= or =polybar=).
 
 * Installation
 
