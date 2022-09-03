@@ -1,0 +1,40 @@
+builds:
+  - binary: bysykkel
+dockers:
+  - image_templates:
+      - staticaland/go-bysykkel
+brews:
+  - name: bysykkel
+    description: CLI for Oslo City Bike
+    homepage: https://github.com/staticaland/go-bysykkel
+    goarm: 6
+    goamd64: v3
+    tap:
+      owner: staticaland
+      name: go-bysykkel
+    folder: Formula
+    install: |
+      bin.install "bysykkel"
+changelog:
+  sort: asc
+  groups:
+    - title: Features
+      regexp: ^.*feat[(\w)]*:+.*$
+      order: 0
+    - title: Bug fixes
+      regexp: ^.*fix[(\w)]*:+.*$
+      order: 1
+    - title: Others
+      order: 999
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - README
+      - OK
+      - Merge pull request
+      - Merge branch
+      - '^ci:'
+      - '^chore:'
+      - '^refactor:'
+      - Brew formula update
