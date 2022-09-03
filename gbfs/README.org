@@ -1,0 +1,10 @@
+* About
+
+This code was initially created by using [[https://transform.tools/json-to-go][the JSON to GO tool at transform.tool]].
+
+At [[https://github.com/staticaland/go-bysykkel/commit/4db2cbeeb8be11c50d491beda8b364efbc31aa3a][this commit]] I decided to take inspiration from [[https://github.com/Eraac/gbfs][Eraac/gbfs]] and refactor.
+
+Because I am in the process of learning Go, I did not want to use too many third
+party packages.
+
+I keep the struct tag literals around just in case it will be needed later.
