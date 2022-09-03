@@ -1,0 +1,9 @@
+* About
+
+The most efficient way to get around Oslo is on a bike.
+
+* Installation
+
+#+begin_src sh
+go build main.go -o bysykkel
+#+end_src
