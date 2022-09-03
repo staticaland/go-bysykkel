@@ -1,0 +1,30 @@
+name: Run
+
+"on":
+  workflow_dispatch: {}
+
+jobs:
+
+  build:
+
+    name: Build the Go code
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+
+      - name: Setup Go environment
+        uses: actions/setup-go@268d8c0ca0432bb2cf416faae41297df9d262d7f
+        with:
+          go-version: 1.19
+
+      - name: Build
+        run: go install
+
+      - name: Run
+        run: bysykkel
+
+permissions:
+  contents: read
