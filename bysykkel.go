@@ -20,6 +20,7 @@ type Station struct {
 
 func main() {
 
+	// Trigger CI
 	c := client.CreateClient()
 
 	stationInformation, err := c.GetStationInformation()
