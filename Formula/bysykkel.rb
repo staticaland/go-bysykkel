@@ -5,12 +5,12 @@
 class Bysykkel < Formula
   desc "CLI for Oslo City Bike"
   homepage "https://github.com/staticaland/go-bysykkel"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/staticaland/go-bysykkel/releases/download/v0.1.0/go-bysykkel_0.1.0_darwin_arm64.tar.gz"
-      sha256 "c41d5f7e73ce0bcfbb97eca254362d624aaa8102147140ecae2157d84171a020"
+      url "https://github.com/staticaland/go-bysykkel/releases/download/v0.2.0/go-bysykkel_0.2.0_darwin_arm64.tar.gz"
+      sha256 "9c72ae4fad56d1957d864cc0ac0a07db0c0cc15deb8f042950667ca140d2bb37"
 
       def install
         bin.install "bysykkel"
@@ -20,8 +20,8 @@ class Bysykkel < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/staticaland/go-bysykkel/releases/download/v0.1.0/go-bysykkel_0.1.0_linux_arm64.tar.gz"
-      sha256 "eb09b47ccea5f8558fc18d92803b1b6eeeff34f64901821e41261293e164edc8"
+      url "https://github.com/staticaland/go-bysykkel/releases/download/v0.2.0/go-bysykkel_0.2.0_linux_arm64.tar.gz"
+      sha256 "27caf72fe0fc1a60d057725455c8b18e027aff053a35850a8216c14b779bce6d"
 
       def install
         bin.install "bysykkel"
