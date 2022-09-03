@@ -1,6 +1,10 @@
 builds:
   - binary: bysykkel
 
+dockers:
+  - image_templates:
+      - staticaland/bysykkel
+
 brews:
   - name: bysykkel
     description: CLI for Oslo City Bike

@@ -1,6 +1,6 @@
 * About
 
-Simple CLI for Oslo City Bike.
+Simple CLI for Oslo City Bike stations.
 
 * Usage
 
