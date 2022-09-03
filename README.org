@@ -8,6 +8,9 @@
     <a href="https://github.com/staticaland/go-bysykkel/actions/workflows/release.yml">
         <img alt="Release" src="https://github.com/staticaland/go-bysykkel/actions/workflows/release.yml/badge.svg" />
     </a>
+    <a href="https://github.com/staticaland/go-bysykkel/actions/workflows/run.yml">
+        <img alt="Run" src="https://github.com/staticaland/go-bysykkel/actions/workflows/run.yml/badge.svg" />
+    </a>
 </p>
 #+end_html
 
