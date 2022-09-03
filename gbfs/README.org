@@ -8,3 +8,10 @@ Because I am in the process of learning Go, I did not want to use too many third
 party packages.
 
 I keep the struct tag literals around just in case it will be needed later.
+
+* References
+
+- [[https://github.com/NABSA/gbfs][GitHub - NABSA/gbfs: Documentation for the General Bikeshare Feed
+  Specification, a standardized data feed for shared mobility system
+  availability]]
+- [[https://oslobysykkel.no/apne-data/sanntid][Sanntidsdata - Oslo Bysykkel]]
