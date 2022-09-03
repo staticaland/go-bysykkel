@@ -1,0 +1,10 @@
+* About
+
+I decided to use an empty interface to make a helper function for HTTP requests
+(=doRequest=).
+
+An interface that does not implement any methods satisfies any type.
+
+I discovered that =any= is an alias of =interface{}= in Go 1.18 and later.
+
+I should learn more about [[https://go.dev/doc/tutorial/generics][generics]] ([[https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go][DO]]).
