@@ -11,18 +11,17 @@ import (
 )
 
 const (
-	BaseURL = "https://gbfs.urbansharing.com/oslobysykkel.no"
-	ClientID = "staticaland-go-bysykkel"
+	BaseURL               = "https://gbfs.urbansharing.com/oslobysykkel.no"
+	ClientID              = "staticaland-go-bysykkel"
 	StationInformationUrl = BaseURL + "/station_information.json"
-	StationStatusUrl = BaseURL + "/station_status.json"
+	StationStatusUrl      = BaseURL + "/station_status.json"
 )
 
 type Client struct {
-	BaseURL string
-	ClientID string
+	BaseURL    string
+	ClientID   string
 	HTTPClient *http.Client
 }
-
 
 func CreateClient() *Client {
 	return &Client{
@@ -48,9 +47,9 @@ func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
 	defer resp.Body.Close()
 
-    if resp.StatusCode != http.StatusOK {
-        log.Fatal("unexpected response code", resp.Status)
-    }
+	if resp.StatusCode != http.StatusOK {
+		log.Fatal("unexpected response code", resp.Status)
+	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 
@@ -68,7 +67,6 @@ func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
 }
 
-
 func (c *Client) GetStationStatus() (*gbfs.ApiStationStatus, error) {
 
 	req, _ := http.NewRequest("GET", StationStatusUrl, nil)
@@ -84,9 +82,9 @@ func (c *Client) GetStationStatus() (*gbfs.ApiStationStatus, error) {
 
 	defer resp.Body.Close()
 
-    if resp.StatusCode != http.StatusOK {
-        log.Fatal("unexpected response code", resp.Status)
-    }
+	if resp.StatusCode != http.StatusOK {
+		log.Fatal("unexpected response code", resp.Status)
+	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 
