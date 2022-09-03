@@ -1,4 +1,4 @@
-package bysykkel
+package client
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/staticaland/go-bysykkel/api"
+	"github.com/staticaland/go-bysykkel/gbfs"
 )
 
 const (
@@ -33,7 +33,7 @@ func CreateClient() *Client {
 	}
 }
 
-func (c *Client) GetStationInformation() (*api.StationInformation, error) {
+func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
 	req, _ := http.NewRequest("GET", StationInformationUrl, nil)
 
@@ -58,7 +58,7 @@ func (c *Client) GetStationInformation() (*api.StationInformation, error) {
 		log.Fatalln(err)
 	}
 
-	var stationInformation api.StationInformation
+	var stationInformation gbfs.ApiStationInformation
 
 	if err := json.Unmarshal(body, &stationInformation); err != nil {
 		log.Fatalln(err)
@@ -69,7 +69,7 @@ func (c *Client) GetStationInformation() (*api.StationInformation, error) {
 }
 
 
-func (c *Client) GetStationStatus() (*api.StationStatus, error) {
+func (c *Client) GetStationStatus() (*gbfs.ApiStationStatus, error) {
 
 	req, _ := http.NewRequest("GET", StationStatusUrl, nil)
 
@@ -94,7 +94,7 @@ func (c *Client) GetStationStatus() (*api.StationStatus, error) {
 		log.Fatalln(err)
 	}
 
-	var stationStatus api.StationStatus
+	var stationStatus gbfs.ApiStationStatus
 
 	if err := json.Unmarshal(body, &stationStatus); err != nil {
 		log.Fatalln(err)
