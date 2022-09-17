@@ -72,6 +72,19 @@ brew untap staticaland/go-bysykkel
 
 * Examples
 
+** Route that does not exist
+
+#+begin_src sh :results raw :wrap src json :exports both
+curl localhost:4000/foo | prettier --parser=json
+#+end_src
+
+#+RESULTS:
+#+begin_src json
+{
+  "error": "The requested resource could not be found"
+}
+#+end_src
+
 * Logging
 
 Decided on [[https://github.com/rs/zerolog][Zerolog]] after evaluating a few options[fn:1].
