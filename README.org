@@ -82,4 +82,4 @@ Decided on [[https://github.com/rs/zerolog][Zerolog]] after evaluating a few opt
 go build bysykkel.go
 #+end_src
 
-[fn:1]: https://notes.garden/Cards/%F0%9F%8C%B2+Notes/Structured+logging
+[fn:1] [[https://notes.garden/Cards/%F0%9F%8C%B2+Notes/Structured+logging][Structured logging - notes]]
