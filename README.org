@@ -70,8 +70,16 @@ brew untap staticaland/go-bysykkel
 #+end_src
 
 
+* Examples
+
+* Logging
+
+Decided on [[https://github.com/rs/zerolog][Zerolog]] after evaluating a few options[fn:1].
+
 * Build
 
 #+begin_src sh
 go build bysykkel.go
 #+end_src
+
+[fn:1]: https://notes.garden/Cards/%F0%9F%8C%B2+Notes/Structured+logging
