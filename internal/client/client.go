@@ -2,12 +2,12 @@ package client
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
-	"fmt"
 
-	"github.com/staticaland/go-bysykkel/gbfs"
+	"github.com/staticaland/go-bysykkel/internal/gbfs"
 )
 
 const (

@@ -85,6 +85,7 @@ curl localhost:4000/foo | prettier --parser=json
 }
 #+end_src
 
+
 * Logging
 
 Decided on [[https://github.com/rs/zerolog][Zerolog]] after evaluating a few options[fn:1].

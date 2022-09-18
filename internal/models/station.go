@@ -1,14 +1,8 @@
-package main
+package models
 
 import (
-	"log"
-	"os"
-	"strconv"
-
-	"github.com/olekukonko/tablewriter"
-
-	"github.com/staticaland/go-bysykkel/client"
-	"github.com/staticaland/go-bysykkel/gbfs"
+	"github.com/staticaland/go-bysykkel/internal/client"
+	"github.com/staticaland/go-bysykkel/internal/gbfs"
 )
 
 type Station struct {
@@ -18,21 +12,22 @@ type Station struct {
 	NumDocksAvailable int    `json:"num_docks_available"`
 }
 
-func main() {
+type StationModel struct {
+	Client *client.Client
+}
 
-	// Trigger CI
-	c := client.CreateClient()
+func (s *StationModel) All() ([]Station, error) {
 
-	stationInformation, err := c.GetStationInformation()
+	stationInformation, err := s.Client.GetStationInformation()
 
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
-	stationStatus, err := c.GetStationStatus()
+	stationStatus, err := s.Client.GetStationStatus()
 
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
 	stationStatusByID := make(map[string]gbfs.StationStatus)
@@ -52,18 +47,6 @@ func main() {
 		})
 	}
 
-	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Name", "Bikes", "Locks"})
-	table.SetAutoFormatHeaders(false)
-
-	for _, s := range stations {
-		table.Append([]string{
-			s.Name,
-			strconv.Itoa(s.NumBikesAvailable),
-			strconv.Itoa(s.NumDocksAvailable),
-		})
-	}
-
-	table.Render()
+	return stations, nil
 
 }
