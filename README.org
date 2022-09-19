@@ -19,6 +19,7 @@
 
 Simple CLI and (proxy) REST API for Oslo City Bike stations.
 
+
 * Usage
 
 Follow the [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]] and use =fzf= to filter the output:
@@ -45,8 +46,11 @@ You could also add it to your status bar (like =i3status= or =polybar=).
 ** Go
 
 #+begin_src sh
-go install bysykkel.go
+go install ./cmd/bysykkel
+go install ./cmd/bysykkel-server
 #+end_src
+
+See [[./.github/workflows/run.yml][run.yml for expected behaviour]].
 
 
 ** Homebrew
@@ -89,12 +93,13 @@ curl localhost:4000/foo | prettier --parser=json
 #+end_src
 
 
-
 * Build
 
 #+begin_src sh
 go build bysykkel.go
 #+end_src
+
+See [[./.github/workflows/build.yml][build.yml for expected behaviour]].
 
 * Testing
 
@@ -103,7 +108,9 @@ in GitHub Actions (CI/CD) on commit to =main=.
 
 You can use =act= ([[https://github.com/nektos/act][act]]) to run workflows too, if you're feeling adventerous.
 
-- [[https://dave.cheney.net/2019/05/07/prefer-table-driven-tests][Prefer table driven tests | Dave Cheney]]
+See [[./.github/workflows/test.yml][test.yml for expected behaviour]].
+
+Read [[https://dave.cheney.net/2019/05/07/prefer-table-driven-tests]["Prefer table driven tests" by Dave Cheney]].
 
 * Logging
 
