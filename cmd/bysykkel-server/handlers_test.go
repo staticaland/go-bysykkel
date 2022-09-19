@@ -15,6 +15,8 @@ import (
 
 func TestHealthCheck(t *testing.T) {
 
+	// Trigger CI
+
 	rr := httptest.NewRecorder()
 
 	r, err := http.NewRequest(http.MethodGet, "/", nil)
