@@ -36,7 +36,7 @@ jobs:
         run: curl --silent localhost:4000/v1/stations | jq .stations[0:3]
 
       - name: Query server
-        run: curl --silent localhost:4000/v1/stations | jq '.stations[0:3] | @tsv'
+        run: curl --silent localhost:4000/v1/stations | jq '.stations[0:3] | [.station_id, .name] | @tsv'
 
 permissions:
   contents: read
