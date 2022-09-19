@@ -10,7 +10,7 @@ import (
 
 func TestJoinStationsByIdWithApiData(t *testing.T) {
 
-	c := client.CreateClient()
+	c, _ := client.CreateClient()
 	stationStatus, err := c.GetStationStatus()
 
 	if err != nil {

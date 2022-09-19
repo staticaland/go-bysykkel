@@ -11,10 +11,8 @@ import (
 )
 
 const (
-	BaseURL               = "https://gbfs.urbansharing.com/oslobysykkel.no"
-	ClientID              = "staticaland-go-bysykkel"
-	StationInformationUrl = BaseURL + "/station_information.json"
-	StationStatusUrl      = BaseURL + "/station_status.json"
+	BaseURL  = "https://gbfs.urbansharing.com/oslobysykkel.no"
+	ClientID = "staticaland-go-bysykkel"
 )
 
 type Client struct {
@@ -23,27 +21,44 @@ type Client struct {
 	HTTPClient *http.Client
 }
 
-func CreateClient() *Client {
-	return &Client{
+type Option func(*Client) error
+
+func SetBaseURL(baseURL string) Option {
+	return func(c *Client) error {
+		c.BaseURL = baseURL
+		return nil
+	}
+}
+
+func (c *Client) parseOptions(opts ...Option) error {
+	for _, option := range opts {
+		err := option(c)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func CreateClient(opts ...Option) (*Client, error) {
+	client := &Client{
 		BaseURL: BaseURL,
 		HTTPClient: &http.Client{
 			Timeout: time.Minute,
 		},
 	}
-}
 
-func CreateTestClient() *Client {
-	return &Client{
-		BaseURL: "http://localhost:8080",
-		HTTPClient: &http.Client{
-			Timeout: time.Minute,
-		},
+	if err := client.parseOptions(opts...); err != nil {
+		return nil, err
 	}
+
+	return client, nil
 }
 
 func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
-	req, _ := http.NewRequest("GET", StationInformationUrl, nil)
+	req, _ := http.NewRequest("GET", c.BaseURL+"/station_information.json", nil)
 
 	res := gbfs.ApiStationInformation{}
 
@@ -59,7 +74,7 @@ func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
 func (c *Client) GetStationStatus() (*gbfs.ApiStationStatus, error) {
 
-	req, _ := http.NewRequest("GET", StationStatusUrl, nil)
+	req, _ := http.NewRequest("GET", c.BaseURL+"/station_status.json", nil)
 
 	res := gbfs.ApiStationStatus{}
 

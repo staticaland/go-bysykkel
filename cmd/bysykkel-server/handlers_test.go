@@ -15,8 +15,6 @@ import (
 
 func TestHealthCheck(t *testing.T) {
 
-	// Trigger CI
-
 	rr := httptest.NewRecorder()
 
 	r, err := http.NewRequest(http.MethodGet, "/", nil)
@@ -38,7 +36,7 @@ func TestShowStations(t *testing.T) {
 
 	logger := zerolog.New(io.Discard)
 
-	c := client.CreateClient()
+	c, _ := client.CreateClient()
 
 	app := &application{
 		logger:   logger,

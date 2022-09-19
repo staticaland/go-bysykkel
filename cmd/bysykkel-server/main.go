@@ -49,7 +49,7 @@ func main() {
 		logger = zerolog.New(os.Stdout).Level(zerolog.InfoLevel)
 	}
 
-	c := client.CreateClient()
+	c, _ := client.CreateClient()
 
 	app := &application{
 		config:   cfg,

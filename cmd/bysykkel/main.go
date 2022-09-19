@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	c := client.CreateClient()
+	c, _ := client.CreateClient()
 
 	stationModel := models.StationModel{
 		Client: c,

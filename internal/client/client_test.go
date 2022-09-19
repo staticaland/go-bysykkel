@@ -28,7 +28,7 @@ func setup() func() {
 	mux = http.NewServeMux()
 	server = httptest.NewServer(mux)
 
-	client = CreateTestClient()
+	client, _ = CreateClient(SetBaseURL(server.URL))
 
 	return func() {
 		server.Close()
