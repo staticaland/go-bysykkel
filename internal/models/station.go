@@ -18,17 +18,25 @@ type StationModel struct {
 
 func (s *StationModel) All() ([]Station, error) {
 
+	stationStatus, err := s.Client.GetStationStatus()
+
+	if err != nil {
+		return nil, err
+	}
+
 	stationInformation, err := s.Client.GetStationInformation()
 
 	if err != nil {
 		return nil, err
 	}
 
-	stationStatus, err := s.Client.GetStationStatus()
+	stations, _ := joinStationsByID(stationStatus, stationInformation)
 
-	if err != nil {
-		return nil, err
-	}
+	return stations, nil
+
+}
+
+func joinStationsByID(stationStatus *gbfs.ApiStationStatus, stationInformation *gbfs.ApiStationInformation) ([]Station, error) {
 
 	stationStatusByID := make(map[string]gbfs.StationStatus)
 
