@@ -18,13 +18,13 @@ run/server:
 .PHONY: build/cli
 build/cli:
 	@echo 'Building cmd/bysykkel...'
-	go build -o=./bin/bysykkel ./cmd/bysykkel
+	go build -ldflags='-s' -o=./bin/bysykkel ./cmd/bysykkel
 
 ## build/server: build the cmd/bysykkel-server REST API application
 .PHONY: build/server
 build/server:
 	@echo 'Building cmd/bysykkel-server...'
-	go build -o=./bin/bysykkel-server ./cmd/bysykkel-server
+	go build -ldflags='-s' -o=./bin/bysykkel-server ./cmd/bysykkel-server
 
 ## quality: run quality checks
 .PHONY: quality
