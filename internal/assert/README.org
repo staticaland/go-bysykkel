@@ -1,0 +1,4 @@
+* About
+
+This one is inspired by [[https://lets-go.alexedwards.net/][Let's Go]], and it makes a lot of sense to create a
+function for this very common testing logic.

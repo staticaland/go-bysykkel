@@ -27,10 +27,10 @@ jobs:
         run: bysykkel
 
       - name: Install server
-        run: go install ./cmd/bysykkel-serve
+        run: go install ./cmd/bysykkel-server
 
       - name: Run server
-        run: bysykkel-serve &
+        run: bysykkel-server &
 
       - name: Query server
         run: curl localhost:4000/v1/stations
