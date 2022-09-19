@@ -22,6 +22,8 @@ CLI and simplified (proxy) REST API server for Oslo City Bike stations.
 
 * Usage
 
+** CLI
+
 Follow the [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]] and use =fzf= to filter the output:
 
 #+begin_src sh
@@ -38,6 +40,12 @@ watch --interval 5 --no-title 'bysykkel | grep Birkelunden'
 #+end_src
 
 You could also add it to your status bar (like =i3status= or =polybar=).
+
+** Server
+
+#+begin_src sh
+bysykkel-server
+#+end_src
 
 * Installation
 
