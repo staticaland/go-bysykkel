@@ -17,7 +17,7 @@
 </p>
 #+end_html
 
-Simple CLI and (proxy) REST API for Oslo City Bike stations.
+CLI and simplified (proxy) REST API for Oslo City Bike stations.
 
 
 * Usage
