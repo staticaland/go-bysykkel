@@ -9,7 +9,8 @@ loosely on [[https://peter.bourgon.org/go-best-practices-2016][Peter Bourgon's "
 One benefit of doing this is to cut down on dependencies. The CLI doesn't need
 =httprouter= and the server doesn't need =tablewriter= and so on. The resulting
 binaries will be smaller and be less prone to unecessary software
-vulnerabilities. Less bloat.
+vulnerabilities. The downside is that it creates a bit more complexity for
+building the project, but it's not a hard problem to solve.
 
 Alternatives could be to make a =-s= flag for running a server or creating
 sub-commands with something like [[https://github.com/spf13/cobra][Cobra]].
