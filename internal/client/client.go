@@ -32,6 +32,15 @@ func CreateClient() *Client {
 	}
 }
 
+func CreateTestClient() *Client {
+	return &Client{
+		BaseURL: "http://localhost:8080",
+		HTTPClient: &http.Client{
+			Timeout: time.Minute,
+		},
+	}
+}
+
 func (c *Client) GetStationInformation() (*gbfs.ApiStationInformation, error) {
 
 	req, _ := http.NewRequest("GET", StationInformationUrl, nil)
