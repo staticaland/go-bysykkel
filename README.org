@@ -86,9 +86,6 @@ curl localhost:4000/foo | prettier --parser=json
 #+end_src
 
 
-* Logging
-
-Decided on [[https://github.com/rs/zerolog][Zerolog]] after evaluating a few options[fn:1].
 
 * Build
 
@@ -98,6 +95,18 @@ go build bysykkel.go
 
 * Testing
 
+Run tests with =make quality= (let's make quality software!). Tests are also run
+in GitHub Actions (CI/CD) on commit to =main=.
+
+You can use =act= ([[https://github.com/nektos/act][act]]) to run workflows too, if you're feeling adventerous.
+
 - [[https://dave.cheney.net/2019/05/07/prefer-table-driven-tests][Prefer table driven tests | Dave Cheney]]
+
+* Logging
+
+Out of scope, but I decided on [[https://github.com/rs/zerolog][Zerolog]] after evaluating a few options[fn:1]. I
+just wanted to add a bit more realism, and it's useful keep around for future
+projects.
+
 
 [fn:1] [[https://notes.garden/Cards/%F0%9F%8C%B2+Notes/Structured+logging][Structured logging - notes]]

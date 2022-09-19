@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -46,7 +45,7 @@ func TestShowStations(t *testing.T) {
 
 	rr := httptest.NewRecorder()
 
-	r, err := http.NewRequest(http.MethodGet, "/vqwewqe", nil)
+	r, err := http.NewRequest(http.MethodGet, "/", nil)
 	if err != nil {
 		t.Fatal(err)
 	}

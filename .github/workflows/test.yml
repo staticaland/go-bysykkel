@@ -11,9 +11,9 @@ name: Build
 
 jobs:
 
-  build:
+  test:
 
-    name: Build the Go code
+    name: Ensure quality of Go code
     runs-on: ubuntu-latest
 
     steps:
@@ -26,11 +26,8 @@ jobs:
         with:
           go-version: 1.19
 
-      - name: Build CLI
-        run: go install ./cmd/bysykkel
-
-      - name: Build server
-        run: go build ./cmd/bysykkel-server
+      - name: Run quality checks
+        run: make quality
 
 permissions:
   contents: read
