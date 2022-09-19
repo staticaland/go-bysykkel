@@ -1,0 +1,15 @@
+* About
+
+Why multiple commands?
+
+This project structure is similar to [[https://github.com/prometheus/prometheus/tree/main/cmd][Prometheus]], [[https://github.com/kubernetes/kubernetes/tree/master/cmd][Kubernetes]] etc. It's based
+loosely on [[https://peter.bourgon.org/go-best-practices-2016][Peter Bourgon's "Go best practices, six years in"]] and
+[[https://github.com/thockin/go-build-template][thockin/go-build-template]].
+
+One benefit of doing this is to cut down on dependencies. The CLI doesn't need
+=httprouter= and the server doesn't need =tablewriter= and so on. The resulting
+binaries will be smaller and be less prone to unecessary software
+vulnerabilities. Less bloat.
+
+Alternatives could be to make a =-s= flag for running a server or creating
+sub-commands with something like [[https://github.com/spf13/cobra][Cobra]].
