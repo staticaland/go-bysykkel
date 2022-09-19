@@ -24,13 +24,13 @@ jobs:
         run: go install ./cmd/bysykkel
 
       - name: Run CLI
-        run: bysykkel --h && bysykkel
+        run: bysykkel
 
       - name: Install server
         run: go install ./cmd/bysykkel-server
 
       - name: Run server
-        run: bysykkel-server -h && bysykkel-server &
+        run: bysykkel-server &
 
       - name: Query server
         run: curl localhost:4000/v1/stations
