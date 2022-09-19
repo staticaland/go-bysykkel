@@ -33,7 +33,7 @@ jobs:
         run: bysykkel-server &
 
       - name: Query server
-        run: curl localhost:4000/v1/stations | jq .stations[0:3]
+        run: curl --silent localhost:4000/v1/stations | jq .stations[0:3]
 
 permissions:
   contents: read
