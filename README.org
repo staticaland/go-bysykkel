@@ -50,7 +50,7 @@ go install ./cmd/bysykkel
 go install ./cmd/bysykkel-server
 #+end_src
 
-See [[./.github/workflows/run.yml][run.yml for expected behaviour]].
+See [[https://github.com/staticaland/go-bysykkel/actions/workflows/run.yml][run.yml for expected behaviour]].
 
 
 ** Homebrew
@@ -99,7 +99,7 @@ curl localhost:4000/foo | prettier --parser=json
 go build bysykkel.go
 #+end_src
 
-See [[./.github/workflows/build.yml][build.yml for expected behaviour]].
+See [[https://github.com/staticaland/go-bysykkel/actions/workflows/build.yml][build.yml for expected behaviour]].
 
 * Testing
 
@@ -108,7 +108,7 @@ in GitHub Actions (CI/CD) on commit to =main=.
 
 You can use =act= ([[https://github.com/nektos/act][act]]) to run workflows too, if you're feeling adventerous.
 
-See [[./.github/workflows/test.yml][test.yml for expected behaviour]].
+See [[https://github.com/staticaland/go-bysykkel/actions/workflows/test.yml][test.yml for expected behaviour]].
 
 Read [[https://dave.cheney.net/2019/05/07/prefer-table-driven-tests]["Prefer table driven tests" by Dave Cheney]].
 
