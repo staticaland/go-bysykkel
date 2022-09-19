@@ -21,6 +21,7 @@ type Client struct {
 	HTTPClient *http.Client
 }
 
+// This concept is based on https://markphelps.me/posts/testing-api-clients-in-go/
 type Option func(*Client) error
 
 func SetBaseURL(baseURL string) Option {
