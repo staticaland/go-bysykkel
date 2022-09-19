@@ -111,6 +111,22 @@ curl localhost:4000/v1/stations | jq .stations[0:3]
 ]
 #+end_src
 
+** Selecting a particular station
+
+#+begin_src sh :results raw :wrap src json :exports both
+curl localhost:4000/v1/stations | jq '.stations[] | select(.name == "Birkelunden")'
+#+end_src
+
+#+RESULTS:
+#+begin_src json
+{
+  "station_id": "424",
+  "name": "Birkelunden",
+  "num_bikes_available": 9,
+  "num_docks_available": 1
+}
+#+end_src
+
 ** Route that does not exist
 
 #+begin_src sh :results raw :wrap src json :exports both
