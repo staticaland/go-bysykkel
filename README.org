@@ -96,8 +96,11 @@ curl localhost:4000/foo | prettier --parser=json
 * Build
 
 #+begin_src sh
-go build bysykkel.go
+make build/cli
+make build/server
 #+end_src
+
+Binaries will be placed in =./bin=.
 
 See [[https://github.com/staticaland/go-bysykkel/actions/workflows/build.yml][build.yml for expected behaviour]].
 
